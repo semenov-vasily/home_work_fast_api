@@ -31,14 +31,14 @@ async def get_adv_by_id(session: SessionDependency, advertisement_id: int):
 
 # Получение объявления по полю author
 @app.get("/v1/advertisement_author/", response_model=List[schema.GetAdvertisementResponse])
-async def get_adv_by_author2(session: SessionDependency, author: str):
+async def get_adv_by_author(session: SessionDependency, author: str):
     total = await search_author(session, Advertisement, author)
     return [i[0].dict for i in total]
 
 
 # Получение объявления по полю author через id
 @app.get("/v1/advertisement_author_id/", response_model=List[schema.GetAdvertisementResponse])
-async def get_adv_by_author(session: SessionDependency, author: str):
+async def get_adv_by_author2(session: SessionDependency, author: str):
     list_advertisement = []
     num = await number_of_advertisement(session, Advertisement, author)
     for advertisement_id in range(num + 1):
