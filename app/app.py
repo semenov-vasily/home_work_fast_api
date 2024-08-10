@@ -5,7 +5,7 @@ from typing import List
 from lifespan import lifespan
 from depencies import SessionDependency
 from crud import add_item, get_item, search_item, number_of_advertisement, search_author
-import uvicorn
+
 
 app = fastapi.FastAPI(
     title="Advertisement API",
